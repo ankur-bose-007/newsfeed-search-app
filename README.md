@@ -1,5 +1,5 @@
 # Introduction
-This is a boiler plate project for FSD Certification Practice Check. Admin can add news feeds. A logged in user(News Analyst) can search for news. The news related to the current search and previous search topics are listed. Users can view the topics searched and can delete the searched topics. Fork this project to the group CHN18IJ003 and create the below specified issues in the forked project.
+This is a boiler plate project for FSD Certification Practice Check. Admin can search and blacklist a news analyst. A logged in user can search for news. For each user, the system maintains the historical list of keywords searched. In the home screen the news related to the search keywords are displayed under relevant headings. Users can view the topics searched and can delete the searched topics. Fork this project and create the below specified issues in the forked project.
 
 | **Issue Title** | **Issue Description** |
 |-----------|-------------------|
@@ -26,6 +26,6 @@ This is a boiler plate project for FSD Certification Practice Check. Admin can a
 
 ## Role: Admin
 1. Login
-2. Search New Analyst
-3. Blacklist New Analyst
+2. Search News Analyst
+3. Blacklist News Analyst
 4. Logout
