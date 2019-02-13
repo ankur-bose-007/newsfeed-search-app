@@ -26,7 +26,7 @@ public class User {
 	
 	private boolean admin;
 	
-	@OneToMany(cascade=CascadeType.ALL,orphanRemoval=true,fetch=FetchType.EAGER)
+	@OneToMany(cascade=CascadeType.ALL,orphanRemoval=true,fetch=FetchType.LAZY)
 	@JoinColumn(name="role_id")
 	List<Role> roles=new ArrayList<Role>();
 

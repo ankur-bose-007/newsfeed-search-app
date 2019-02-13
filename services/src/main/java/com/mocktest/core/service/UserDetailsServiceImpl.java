@@ -3,6 +3,8 @@ package com.mocktest.core.service;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.transaction.Transactional;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -19,7 +21,7 @@ import com.mocktest.core.repo.UserRepository;
 public class UserDetailsServiceImpl implements UserDetailsService{
 	@Autowired
 	private UserRepository userRepository;
-	
+	@Transactional
 	public UserDetails loadUserByUsername(String userEmailId) throws UsernameNotFoundException {
 		
 		User user=userRepository.findByEmailId(userEmailId).orElseThrow(()->new UsernameNotFoundException("Username not found with username or email"+userEmailId));
