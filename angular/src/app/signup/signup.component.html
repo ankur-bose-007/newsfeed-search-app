@@ -1,0 +1,58 @@
+<div class="container text-primary-color">
+  <div class="card mt-5 col-md-4 offset-md-4 col-sm-12 shadow p-3 mb-5 bg-white rounded">
+    <div class="card-body">
+      <h4 class="card-title text-center mb-4 text-primary-color">Register</h4>
+      <hr>
+      
+      <form [formGroup]="signUpFormGroup" (ngSubmit)="onSubmit(signUpFormGroup.value)">
+      <div class="form-group">
+      <div class="input-group">
+        <div class="input-group-prepend">
+            <span class="input-group-text"> <i class="fa fa-envelope"></i> </span>
+         </div>
+        <input type="text" class="form-control" [ngClass]="{'is-invalid':formValidations.emailId.invalid && (formValidations.emailId.touched || formValidations.emailId.dirty)}" id="InputEmail" placeholder="Enter Email" formControlName="emailId">
+        <div class="invalid-feedback" *ngIf="formValidations.emailId.invalid && (formValidations.emailId.touched || formValidations.emailId.dirty)">
+            <div *ngIf="formValidations.emailId.errors.required">
+                Email is required
+            </div>
+            <div *ngIf="formValidations.emailId.errors.pattern">
+                Email must be valid
+            </div>
+        </div>
+      </div><br>
+      
+      <div class="input-group">
+        <div class="input-group-prepend">
+            <span class="input-group-text"> <i class="fa fa-user"></i> </span>
+         </div>
+        <input type="text" class="form-control" [ngClass]="{'is-invalid':formValidations.userName.invalid && (formValidations.userName.touched || formValidations.userName.dirty)}" id="InputUsername" placeholder="Enter Username" formControlName="userName">
+        <div class="invalid-feedback" *ngIf="formValidations.userName.invalid && (formValidations.userName.touched || formValidations.userName.dirty)">
+          <div *ngIf="formValidations.userName.errors.required">
+              Username is required
+          </div>
+      </div>
+      </div><br>
+
+      <div class="input-group">
+        <div class="input-group-prepend">
+            <span class="input-group-text"> <i class="fa fa-lock"></i> </span>
+         </div>
+          <input type="password" class="form-control" [ngClass]="{'is-invalid':formValidations.password.invalid && (formValidations.password.touched || formValidations.password.dirty)}" id="InputPassword" placeholder="Enter Password" formControlName="password">
+          <div class="invalid-feedback" *ngIf="formValidations.password.invalid && (formValidations.password.touched || formValidations.password.dirty)">
+              <div *ngIf="formValidations.password.errors.required">
+                  Password is required
+              </div>
+              <div *ngIf="formValidations.password.errors.pattern">
+                  Pattern didn't match
+              </div>
+          </div>
+          </div>
+      </div>
+      <div class="form-group">
+      <button type="submit" class="btn btn-primary btn-block main-color"> Sign Up  </button>
+      </div> 
+      <p class="text-center"><a routerLink="">Already have an account? Login</a></p>
+      </form>
+    </div>
+    </div>
+  </div>

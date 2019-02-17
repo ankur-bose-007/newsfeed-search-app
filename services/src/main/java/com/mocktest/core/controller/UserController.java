@@ -43,6 +43,18 @@ public class UserController {
 		return "inside test";
 	}
 	
+	@PreAuthorize("hasRole('ROLE_USER') or hasRole('ROLE_ADMIN')")
+	@GetMapping("getUserDetails/{emailId}")
+	public ResponseEntity<User> getUserDetails(@PathVariable("emailId") String emailId) {
+		User user=null;
+		if(emailId!=null&&!emailId.equals("")){
+			user=userService.getUserDetails(emailId);
+			if(user!=null)
+				return new ResponseEntity<User>(user,HttpStatus.OK);
+		}
+		return new ResponseEntity<User>(user,HttpStatus.BAD_REQUEST);
+	}
+	
 	@PostMapping("login")
 	public ResponseEntity<String> login(@Valid @RequestBody User user){
 		Authentication authentication=authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(
@@ -88,11 +100,11 @@ public class UserController {
 		return new ResponseEntity<String>("Wrong search details",HttpStatus.BAD_REQUEST);
 	}
 	
-	@DeleteMapping("deleteSearch/{emailId}")
+	@DeleteMapping("deleteSearch/{emailId}/{searchId}")
 	@PreAuthorize("hasRole('ROLE_USER')")
-	public ResponseEntity<String> deleteSearchHistory(@PathVariable String emailId,@RequestBody Search search){
-		if(emailId!=null&&search!=null){
-			if(userService.deleteSearchHistory(emailId,search))
+	public ResponseEntity<String> deleteSearchHistory(@PathVariable("emailId") String emailId,@PathVariable("searchId") long searchId){
+		if(emailId!=null&&searchId!=0){
+			if(userService.deleteSearchHistory(emailId,searchId))
 				return new ResponseEntity<String>("Search Deleted",HttpStatus.OK);
 			return new ResponseEntity<String>("User doesn't exist",HttpStatus.BAD_REQUEST);
 		}

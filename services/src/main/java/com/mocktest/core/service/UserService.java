@@ -21,23 +21,19 @@ public class UserService {
 	private UserRepository userRepository;
 	@Autowired
 	private PasswordEncoder passwordEncoder; 
-	@Autowired
-	private RoleRepository roleRepository;
 	Search sr;
 	
 	public boolean saveUser(User user){
-		if(user!=null&&!userRepository.existsById(user.getId())){
-			Role role=new Role();
-			role.setId(1);
-			role.setRoleName("ROLE_USER");
-			role=roleRepository.findById(role.getId()).orElse(roleRepository.save(role));
-			ArrayList<Role> rolesList=new ArrayList<Role>();
-			rolesList.add(role);
-			user.setRoles(rolesList);
+		if(user!=null&&!userRepository.findByEmailId(user.getEmailId()).isPresent()){
 			user.setPassword(passwordEncoder.encode(user.getPassword()));
 			user.setActive(true);
 			user.setAdmin(false);
 			userRepository.save(user);
+			Role role=new Role();
+			role.setRoleName("ROLE_USER");
+			ArrayList<Role> rolesList=new ArrayList<Role>();
+			rolesList.add(role);
+			user.setRoles(rolesList);
 			return true;
 		}
 		return false;
@@ -63,6 +59,13 @@ public class UserService {
 		return searchList;
 	}
 	
+	public User getUserDetails(String emailId) {
+		User user=null;
+		if(emailId!=null&&!emailId.equals(""))
+			user=userRepository.findByEmailId(emailId).orElse(null);
+		return user;
+	}
+	
 	public boolean addSearch(String emailId,Search search){
 		List<Search> searchList=null;
 		User user=null;
@@ -79,13 +82,13 @@ public class UserService {
 		return false;
 	}
 	
-	public boolean deleteSearchHistory(String emailId,Search search){
+	public boolean deleteSearchHistory(String emailId,long searchId){
 		
-		if(emailId!=null&&!emailId.equals("")&&search!=null){
+		if(emailId!=null&&!emailId.equals("")&&searchId!=0){
 			User user = userRepository.findByEmailId(emailId).get();
 			if(user!=null){
 				user.getSearchList().forEach(searchPojo->{
-					if(searchPojo.getKeyword().equals(search.getKeyword()))
+					if(searchPojo.getId()==searchId)
 						sr = searchPojo;
 				});
 			user.getSearchList().remove(sr);

@@ -1,1 +1,13 @@
 /* You can add global styles to this file, and also import other style files */
+.main-color{
+    background-color:#673AB7;
+}
+.text-primary-color{
+    color:#673AB7;
+}
+.text-secondary-color{
+    color:#F8F6FC;
+}
+.text-tertiary-color{
+    color:#E5D8F5;
+}

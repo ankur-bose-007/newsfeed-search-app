@@ -13,10 +13,11 @@ public class AdminService {
 	@Autowired
 	private UserRepository userRepository;
 	
-	public User getUserByUsername(String emailId){
-		User user=null;
+	public List<User> getUserByUsername(String emailId){
+		List<User> user=null;
 		if(emailId!=null&&!emailId.equals(""))
-			user=userRepository.findByEmailId(emailId).orElse(null);
+			user=userRepository.findByEmailIdContainingIgnoreCaseAndAdmin(emailId,false);
+		
 		return user;
 	}
 	
@@ -30,6 +31,7 @@ public class AdminService {
 			user=userRepository.findByEmailId(emailId).orElse(null);
 			if(user!=null){
 				user.setActive(false);
+				userRepository.save(user);
 				return true;
 			}
 		}

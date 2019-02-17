@@ -1,0 +1,22 @@
+import { Injectable } from '@angular/core';
+import {
+  HttpEvent, HttpInterceptor, HttpHandler, HttpRequest
+} from '@angular/common/http';
+import { GlobalService } from 'src/GlobalServices/global.service';
+
+
+@Injectable()
+export class AuthInterceptor implements HttpInterceptor {
+
+  constructor(private globalService:GlobalService) {}
+
+  intercept(req: HttpRequest<any>, next: HttpHandler) {
+    // Get the auth token from the service.
+    const authToken='Bearer '+this.globalService.jwt;
+
+    const authReq = req.clone({ setHeaders: { Authorization: authToken} });
+
+    // send cloned request with header to the next handler.
+    return next.handle(authReq);
+  }
+}

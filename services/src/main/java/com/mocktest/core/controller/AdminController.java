@@ -21,20 +21,23 @@ public class AdminController {
 	private AdminService adminService;
 	
 	
-	@GetMapping("searchUser/{emaildId}")
+	@GetMapping("searchUser/{emailId}")
 	@PreAuthorize("hasRole('ROLE_ADMIN')")
-	public ResponseEntity<User> searchUserByName(@PathVariable String emailId){
-		User user=null;
+	public ResponseEntity<List<User>> searchUserByName(@PathVariable("emailId") String emailId){
+		List<User> usersList=null;
 		if(emailId!=null){
-			if(adminService.getUserByUsername(emailId)!=null)
-				return new ResponseEntity<User>(user,HttpStatus.OK);
+			if(adminService.getUserByUsername(emailId)!=null) {
+				usersList=adminService.getUserByUsername(emailId);
+				return new ResponseEntity<List<User>>(usersList,HttpStatus.OK);
+			}
 		}
-		return new ResponseEntity<User>(user,HttpStatus.BAD_REQUEST);
+		return new ResponseEntity<List<User>>(usersList,HttpStatus.BAD_REQUEST);
 	}
 	
 	@GetMapping("searchAllUsers")
 	@PreAuthorize("hasRole('ROLE_ADMIN')")
 	public ResponseEntity<List<User>> searchAllUser(){
+		System.out.println("inside");
 		List<User> usersList=adminService.getAllUsers();
 		if(!usersList.isEmpty())
 			return new ResponseEntity<List<User>>(usersList,HttpStatus.OK);
@@ -43,7 +46,7 @@ public class AdminController {
 	
 	@GetMapping("blacklist/{emailId}")
 	@PreAuthorize("hasRole('ROLE_ADMIN')")
-	public ResponseEntity<String> blacklistUser(@PathVariable String emailId){
+	public ResponseEntity<String> blacklistUser(@PathVariable("emailId") String emailId){
 		
 		if(adminService.blacklist(emailId))
 			return new ResponseEntity<String>("User blacklisted",HttpStatus.OK);
