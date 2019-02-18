@@ -41,7 +41,7 @@ export class AdminComponent implements OnInit {
   }
 
   LogOut(){
-    sessionStorage.removeItem('token');
+    localStorage.removeItem('token');
     this.globalService.jwt='';
     this.router.navigate(['/']);
   }

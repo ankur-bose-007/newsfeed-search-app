@@ -12,7 +12,7 @@ export class AuthInterceptor implements HttpInterceptor {
 
   intercept(req: HttpRequest<any>, next: HttpHandler) {
     // Get the auth token from the service.
-    const authToken='Bearer '+this.globalService.jwt;
+    const authToken='Bearer '+localStorage.getItem('token');
 
     const authReq = req.clone({ setHeaders: { Authorization: authToken} });
 

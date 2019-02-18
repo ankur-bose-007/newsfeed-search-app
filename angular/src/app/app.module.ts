@@ -13,9 +13,10 @@ import { AuthInterceptor } from './http-interceptors/auth-interceptor';
 import { SearchHistoryComponent } from './search-history/search-history.component';
 import { AdminComponent } from './admin/admin.component';
 import { JwtModule, JwtHelperService } from '@auth0/angular-jwt';
-import { AuthGuardService } from './Auth/auth-guard.service';
+import { AuthGuard } from './Auth/auth.guard';
+
 export function tokenGetter() {
-  return sessionStorage.getItem('token');
+  return localStorage.getItem('token');
 }
 @NgModule({
   declarations: [
@@ -36,7 +37,7 @@ export function tokenGetter() {
       tokenGetter: tokenGetter
     }})
   ],
-  providers: [AuthGuardService,SignupService,{provide: HTTP_INTERCEPTORS,useClass: AuthInterceptor,multi: true},JwtHelperService],
+  providers: [AuthGuard,SignupService,{provide: HTTP_INTERCEPTORS,useClass: AuthInterceptor,multi: true},JwtHelperService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

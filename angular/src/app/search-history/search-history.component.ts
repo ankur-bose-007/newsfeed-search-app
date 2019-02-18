@@ -17,7 +17,7 @@ export class SearchHistoryComponent implements OnInit {
    }
 
   ngOnInit() {
-    this.searchService.fetchAllSearches(this.globalService.user.emailId).subscribe(response=>{
+    this.searchService.fetchAllSearches(localStorage.getItem('id')).subscribe(response=>{
       if(response.status==200)
         this.searchHistoryList=response.body;
     },error=>{

@@ -30,14 +30,18 @@ export class LoginComponent implements OnInit {
     if(response.status==200){
       alert("Successfully logged in");
       this.globalService.jwt=response.body;
+      localStorage.setItem('token',this.globalService.jwt);
+      localStorage.setItem('id',user.emailId);
       this.loginService.getUserDetails(user.emailId).subscribe(response=>{
         
         this.globalService.user=response.body;
-        sessionStorage.setItem('token',this.globalService.jwt);
-        if(response.body.admin)
-          this.router.navigate(['/adminlandingPage']);
+        
+        
+        if(response.body.admin){
+          this.router.navigate(['Pageadmin']);
+        }
         else
-          this.router.navigate(['/userlandingPage']);
+          this.router.navigate(['Pageuser']);
       });
     }
     },error=>{

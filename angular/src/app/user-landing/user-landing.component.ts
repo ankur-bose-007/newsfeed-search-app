@@ -20,9 +20,12 @@ export class UserLandingComponent implements OnInit {
     search:['']
   });
 
-  constructor(private router:Router,private globalService:GlobalService,private newsapi:ApiService,private fb:FormBuilder,private searchService:SearchService) { }
+  constructor(private router:Router,private globalService:GlobalService,private newsapi:ApiService,private fb:FormBuilder,private searchService:SearchService) { 
+
+  }
 
   ngOnInit() {
+    
     this.search=new Search();
     this.newsapi.initArticles().subscribe(data => this.mArticles = data['articles']);
     //load news sources
@@ -40,7 +43,7 @@ export class UserLandingComponent implements OnInit {
   }
 
   LogOut(){
-    sessionStorage.removeItem('token');
+    localStorage.removeItem('token');
     this.globalService.jwt='';
     this.router.navigate(['/']);
   }
