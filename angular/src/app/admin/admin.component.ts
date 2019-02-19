@@ -23,9 +23,15 @@ export class AdminComponent implements OnInit {
 
   ngOnInit() {
     this.adminService.searchAllUsers().subscribe(response=>{
+      
       this.listOfUsers=response.body;
     },error=>{
-      alert('No record found')
+      if(error.status==403){
+        localStorage.removeItem('token');
+        this.router.navigate(['']);
+      }
+      else
+        alert('No record found')
     });
   }
 

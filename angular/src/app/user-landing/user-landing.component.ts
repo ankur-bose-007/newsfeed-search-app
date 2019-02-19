@@ -25,7 +25,6 @@ export class UserLandingComponent implements OnInit {
   }
 
   ngOnInit() {
-    
     this.search=new Search();
     this.newsapi.initArticles().subscribe(data => this.mArticles = data['articles']);
     //load news sources

@@ -12,7 +12,6 @@ import org.springframework.stereotype.Service;
 import com.mocktest.core.entity.Role;
 import com.mocktest.core.entity.Search;
 import com.mocktest.core.entity.User;
-import com.mocktest.core.repo.RoleRepository;
 import com.mocktest.core.repo.UserRepository;
 @Service
 @Transactional
@@ -20,7 +19,8 @@ public class UserService {
 	@Autowired
 	private UserRepository userRepository;
 	@Autowired
-	private PasswordEncoder passwordEncoder; 
+	private PasswordEncoder passwordEncoder;
+	
 	Search sr;
 	
 	public boolean saveUser(User user){
@@ -69,7 +69,7 @@ public class UserService {
 	public boolean addSearch(String emailId,Search search){
 		List<Search> searchList=null;
 		User user=null;
-		if(userRepository.findByEmailId(emailId).isPresent()&&search!=null){
+		if(userRepository.findByEmailId(emailId).isPresent()&&search!=null&&emailId!=null&&!emailId.equals("")){
 			user=userRepository.findByEmailId(emailId).orElse(null);
 			if(user!=null){
 				searchList=user.getSearchList();
@@ -85,15 +85,16 @@ public class UserService {
 	public boolean deleteSearchHistory(String emailId,long searchId){
 		
 		if(emailId!=null&&!emailId.equals("")&&searchId!=0){
-			User user = userRepository.findByEmailId(emailId).get();
+			User user = userRepository.findByEmailId(emailId).orElse(null);
 			if(user!=null){
 				user.getSearchList().forEach(searchPojo->{
 					if(searchPojo.getId()==searchId)
 						sr = searchPojo;
 				});
 			user.getSearchList().remove(sr);
+			return true;
 		}
-		return true;
+		
 	}
 		return false;
 	}
