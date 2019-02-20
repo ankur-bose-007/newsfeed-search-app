@@ -23,13 +23,13 @@ public class User {
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private long id;
 	private String userName;
-	@NotBlank
-	@NotNull
+	@NotBlank(message="Password cannot be blank")
+	@NotNull(message="Password empty")
 	@Pattern(regexp="^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[@$!%*?&]).{8,}$",message="Password must contain atleast 1 upper case, 1 lower case, 1 digit and special character")
 	private String password;
-	@NotBlank
-	@NotNull
-	@Size(min=5, max=50)
+	@NotBlank(message="EmailId cannot be blank")
+	@NotNull(message="EmailId empty")
+	@Size(min=5, max=50,message="EmailId must contain minimum 5 characters and maxinmum 50 characters")
 	@Pattern(regexp="^([a-zA-Z0-9_\\-\\.]+)@([a-zA-Z0-9_\\-\\.]+)\\.([a-zA-Z]{2,5})$",message="Username must contain atleast 1 upper case, 1 lower case, 1 digit and special character")
 	private String emailId;
 	

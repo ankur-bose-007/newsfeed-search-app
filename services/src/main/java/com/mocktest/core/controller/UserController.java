@@ -28,7 +28,7 @@ import com.mocktest.core.service.UserService;
 
 @RestController
 @RequestMapping("user")
-public class UserController {
+public class UserController extends GlobalErrorHandlerController{
 	@Autowired
 	private AuthenticationManager authenticationManager;
 	
@@ -36,12 +36,6 @@ public class UserController {
 	private UserService userService;
 	@Autowired
 	private JwtProvider jwtProvider;
-	
-	@GetMapping("test")
-	@PreAuthorize("hasRole('ROLE_USER')")
-	public String test(){
-		return "inside test";
-	}
 	
 	@PreAuthorize("hasRole('ROLE_USER') or hasRole('ROLE_ADMIN')")
 	@GetMapping("getUserDetails/{emailId}")
@@ -93,7 +87,7 @@ public class UserController {
 	@PutMapping("addSearch/{emailId}")
 	@PreAuthorize("hasRole('ROLE_USER')")
 	public ResponseEntity<String> addSearch(@PathVariable String emailId,@RequestBody Search search){
-		if(emailId!=null&&search!=null){
+		if(emailId!=null&&search!=null&&!emailId.equals("")){
 			if(userService.addSearch(emailId, search))
 				return new ResponseEntity<String>("Search Added",HttpStatus.OK);
 		}

@@ -16,7 +16,7 @@ import com.mocktest.core.service.AdminService;
 
 @RestController
 @RequestMapping("admin")
-public class AdminController {
+public class AdminController extends GlobalErrorHandlerController{
 	@Autowired
 	private AdminService adminService;
 	
