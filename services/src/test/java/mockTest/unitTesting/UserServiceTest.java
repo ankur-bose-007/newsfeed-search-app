@@ -21,7 +21,7 @@ import com.mocktest.core.repo.UserRepository;
 import com.mocktest.core.service.UserService;
 import org.junit.Assert;
 
-public class UserServiceTestClass {
+public class UserServiceTest {
 	@Rule
 	public MockitoRule rule=MockitoJUnit.rule();
 	

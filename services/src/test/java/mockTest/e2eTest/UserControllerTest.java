@@ -23,7 +23,7 @@ import com.mocktest.core.entity.User;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest(classes=Application.class)
-public class UserControllerTestClass {
+public class UserControllerTest {
 	@Autowired
 	private WebApplicationContext webApplicationContext;
 	ObjectMapper mapper;

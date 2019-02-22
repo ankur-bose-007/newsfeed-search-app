@@ -18,7 +18,7 @@ import java.util.Optional;
 
 import org.junit.Assert;
 
-public class AdminServiceTestClass {
+public class AdminServiceTest {
 	@Rule
 	public MockitoRule rule=MockitoJUnit.rule();
 	@InjectMocks
