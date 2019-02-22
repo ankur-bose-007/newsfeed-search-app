@@ -1,4 +1,5 @@
 /* You can add global styles to this file, and also import other style files */
+
 .main-color{
     background-color:#673AB7;
 }
@@ -10,4 +11,16 @@
 }
 .text-tertiary-color{
     color:#E5D8F5;
+}
+.text-primary-color:hover{
+    color:#0033A1;
+}
+.logo-color{
+    color:#0033A1;
+}
+.btn-primary:hover{
+    background-color:rgb(67, 34, 124);
+}
+.footer-color{
+    background-color:#F8F8F8;
 }

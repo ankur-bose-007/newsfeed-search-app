@@ -41,7 +41,7 @@ export class LoginComponent implements OnInit {
           this.router.navigate(['Pageadmin']);
         }
         else
-          this.router.navigate(['Pageuser']);
+          this.router.navigate(['navbar']);
       });
     }
     },error=>{

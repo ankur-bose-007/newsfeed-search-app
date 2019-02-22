@@ -1,30 +1,44 @@
-<nav class="navbar navbar-light bg-light">
-  <form class="form-inline" [formGroup]="SearchForm">
-    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" formControlName="search">
-    <button (click)="searchUser(SearchForm.value)" class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-    <button (click)="LogOut()" class="btn btn-outline-danger" name="LogOut">Log Out</button>
-  </form>
+<nav class="navbar navbar-expand-md shadow-sm mb-5 bg-white navbar-light">
+    <h3 class="logo-color logo-color">Cognizant News</h3>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>   
+    <div class="collapse navbar-collapse" id="navbarText">
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item">   
+                
+            </li>
+        </ul>
+        <form class="form-inline" [formGroup]="SearchForm">
+          <div class="row">  
+          <div class="col input-group">
+          <input class="form-control" style="width:50%" type="search" placeholder="Search" aria-label="Search" formControlName="search">
+          <div class="input-group-append">
+          <button (click)="searchUser(SearchForm.value)" class="btn logo-color" type="submit"><i class="fa fa-search"></i></button>
+        </div>
+        </div>
+      </div>
+          </form>
+        <span class="navbar-text active">
+          <a (click)="LogOut()" class="text-white rounded" name="LogOut">LOG OUT</a>
+        </span>    
+    </div>
 </nav>
-
-<h1>Users</h1>
-<table class="table table-hover">
-        <thead>
-          <tr>
-            <th scope="col">#</th>
-            <th scope="col">Username</th>
-            <th scope="col">Email</th>
-            <th></th>
-          </tr>
+<h5 class="text-primary-color">News Analyst Details:</h5>
+<div>
+</div>
+<table class="table table-hover mt-4 col-sm-12">
+        <thead class="main-color text-secondary-color">
+            <th>#</th>
+            <th>Email</th>
+            <th>Status</th>
         </thead>
-        <tbody>
           <tr *ngFor="let user of listOfUsers">
-            <th scope="row">{{listOfUsers.indexOf(user)+1}}</th>
-            <td>{{user.userName}}</td>
-            <td>{{user.emailId}}</td>
+            <td><strong>{{listOfUsers.indexOf(user)+1}}</strong></td>
+            <td><strong>{{user.emailId}}</strong></td>
             <td>
-              <div *ngIf="user.active"><button (click)="blacklist(user)"><i class="fa fa-trash"></i></button></div>
-              <div *ngIf="!user.active">Blacklisted</div>
+              <div *ngIf="user.active"><button (click)="blacklist(user)"><i class="fa fa-user-times text-primary-color"></i></button></div>
+              <div *ngIf="!user.active"><i class="fa fa-ban text-primary-color"></i></div>
             </td>
           </tr>
-        </tbody>
 </table>

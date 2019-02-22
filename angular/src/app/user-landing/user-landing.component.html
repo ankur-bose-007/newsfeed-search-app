@@ -1,24 +1,21 @@
-<nav class="navbar navbar-light bg-light">
-    <form class="form-inline" [formGroup]="SearchForm">
-      <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" formControlName="search">
-      <button (click)="searchArticles(SearchForm.value)" class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-      <button (click)="history()" class="btn btn-success" name="Search History">Search History</button>
-      <button (click)="LogOut()" class="btn btn-outline-danger" name="LogOut">Log Out</button>
-    </form>
-</nav>
+<form class="form-inline" [formGroup]="SearchForm">
+  <input class="form-control col-8 offset-2" style="width:50%" type="search" placeholder="Search" aria-label="Search" formControlName="search">
+  <button (click)="searchArticles(SearchForm.value)" class="btn logo-color my-2 my-sm-0" type="submit"><i class="fa fa-search"></i></button>
+</form>
+<div *ngFor="let article of mArticles">
+<div class="row col-8 offset-2 my-5 p-0 border rounded overflow-hidden">
+    <div class="col-md-9 mt-1 col-lg-9 col-sm-8">
+        <h5 style="text-align: justify; text-justify: newspaper;" class="card-title">{{article.title}}</h5><hr>
+        <p>{{article.description}}</p>
+        <p class="text-muted">Source: {{article.source.name}}</p>
+    </div>
+    <div class="col-md-2 col-lg-2 col-sm-3 p-1 mx-1">
+      
+        <img class="circle-img rounded" style="width: 200px; height: 150px; " src="{{article.urlToImage}}" alt="Card image cap">
+    </div>
 
-<div class="col-md-8 mx-auto">
-  <div *ngFor="let article of mArticles">
-      <div [ngStyle]="{'background-image': 'url(../assets/images/'+ article.source.id +'.png)'}"
-        class="example-header-image"></div>
-      <h4 class="card-title">{{article.title}}</h4>
-      <h6 class="card-subtitle mb-2 text-muted">{{article.source.name}}</h6>
-      <img mat-card-image class="img-article" src={{article.urlToImage}} alt="">
-      <div class="card-body">
-        <p>
-          {{article.description}}
-        </p>
+    <div class="card-footer col-12  footer-color">
+        <small class="text-muted"><a href="{{article.url}}" target="_blank">Read More...</a></small>
       </div>
-    <br>
-  </div>
+</div>
 </div>

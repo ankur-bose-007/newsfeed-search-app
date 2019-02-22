@@ -14,6 +14,7 @@ import { SearchHistoryComponent } from './search-history/search-history.componen
 import { AdminComponent } from './admin/admin.component';
 import { JwtModule, JwtHelperService } from '@auth0/angular-jwt';
 import { AuthGuard } from './Auth/auth.guard';
+import { NavComponent } from './nav/nav.component';
 
 export function tokenGetter() {
   return localStorage.getItem('token');
@@ -25,7 +26,8 @@ export function tokenGetter() {
     SignupComponent,
     UserLandingComponent,
     SearchHistoryComponent,
-    AdminComponent
+    AdminComponent,
+    NavComponent
   ],
   imports: [
     BrowserModule,

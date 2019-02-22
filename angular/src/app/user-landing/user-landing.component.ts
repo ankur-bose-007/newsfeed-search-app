@@ -21,7 +21,6 @@ export class UserLandingComponent implements OnInit {
   });
 
   constructor(private router:Router,private globalService:GlobalService,private newsapi:ApiService,private fb:FormBuilder,private searchService:SearchService) { 
-
   }
 
   ngOnInit() {
@@ -39,16 +38,6 @@ export class UserLandingComponent implements OnInit {
         alert("search added");
     });
     this.newsapi.getArticlesByID(source.search).subscribe(data => this.mArticles = data['articles']);
-  }
-
-  LogOut(){
-    localStorage.removeItem('token');
-    this.globalService.jwt='';
-    this.router.navigate(['/']);
-  }
-
-  history(){
-    this.router.navigate(['searchHistory']);
   }
 
 }
