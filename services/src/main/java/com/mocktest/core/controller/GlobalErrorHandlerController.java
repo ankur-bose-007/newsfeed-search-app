@@ -23,8 +23,8 @@ public class GlobalErrorHandlerController {
 		errorMessage="Error: ";
 		if(ex instanceof BadCredentialsException){
 			errorResponse.setErrorMessage("Wrong emailId or password");
-			errorResponse.setReasonCode(HttpStatus.BAD_REQUEST.value());
-			return new ResponseEntity<ErrorResponse>(errorResponse,HttpStatus.BAD_REQUEST);
+			errorResponse.setReasonCode(HttpStatus.NOT_ACCEPTABLE.value());
+			return new ResponseEntity<ErrorResponse>(errorResponse,HttpStatus.NOT_ACCEPTABLE);
 		}
 		if(ex instanceof MethodArgumentNotValidException){
 			((MethodArgumentNotValidException) ex).getBindingResult().getFieldErrors().forEach(message->{

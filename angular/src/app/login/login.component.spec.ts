@@ -60,7 +60,7 @@ describe('LoginComponent', () => {
   it('successfully registered',()=>{
     let response:any;
 
-    let spy=spyOn(loginService,'login').and.returnValue(of({status:200}));
+    spyOn(loginService,'login').and.returnValue(of({status:200}));
     let user:User=new User();
     loginService.login(user).subscribe(data=>{
       response=data;

@@ -46,9 +46,11 @@ export class LoginComponent implements OnInit {
     }
     },error=>{
       if(error.status==400)
-        alert("User doesn't exists");
-      else
+        alert("User doesn't exist");
+      else if(error.status==406)
         alert("Wrong credentials");
+      else
+        alert('Something went wrong')
     });
   }
 }

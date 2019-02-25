@@ -1,10 +1,10 @@
 {
     "/user": {
-      "target": "http://localhost:6060/mockTest/",
+      "target": "http://localhost:9090/",
       "secure": false
     },
     "/admin":{
-      "target": "http://localhost:6060/mockTest/",
+      "target": "http://localhost:9090/",
       "secure": false
     }
 }

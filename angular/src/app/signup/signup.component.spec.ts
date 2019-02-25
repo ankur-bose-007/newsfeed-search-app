@@ -72,6 +72,7 @@ describe('SignupComponent', () => {
     let res:any;
     let user:User=new User();
     spyOn(signupService,'signup').and.returnValue(of({status:201}));
+    let spy=spyOn(signupService,'signup').and.callThrough();
     debugElement.query(By.css('form')).triggerEventHandler('submit',null);
     signupService.signup(user).subscribe(data=>{
       res=data;

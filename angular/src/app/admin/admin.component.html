@@ -12,9 +12,9 @@
         <form class="form-inline" [formGroup]="SearchForm">
           <div class="row">  
           <div class="col input-group">
-          <input class="form-control" style="width:50%" type="search" placeholder="Search" aria-label="Search" formControlName="search">
+          <input id="searchText" class="form-control" style="width:50%" type="search" placeholder="Search" aria-label="Search" formControlName="search">
           <div class="input-group-append">
-          <button (click)="searchUser(SearchForm.value)" class="btn logo-color" type="submit"><i class="fa fa-search"></i></button>
+          <button id="searchSubmit" (click)="searchUser(SearchForm.value)" class="btn logo-color" type="submit"><i class="fa fa-search"></i></button>
         </div>
         </div>
       </div>
@@ -33,11 +33,11 @@
             <th>Email</th>
             <th>Status</th>
         </thead>
-          <tr *ngFor="let user of listOfUsers">
+          <tr *ngFor="let user of listOfUsers;let i=index">
             <td><strong>{{listOfUsers.indexOf(user)+1}}</strong></td>
             <td><strong>{{user.emailId}}</strong></td>
             <td>
-              <div *ngIf="user.active"><button (click)="blacklist(user)"><i class="fa fa-user-times text-primary-color"></i></button></div>
+              <div *ngIf="user.active"><button id="button_{{i}}" (click)="blacklist(user)"><i class="fa fa-user-times text-primary-color"></i></button></div>
               <div *ngIf="!user.active"><i class="fa fa-ban text-primary-color"></i></div>
             </td>
           </tr>
