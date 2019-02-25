@@ -52,7 +52,7 @@ export class AdminComponent implements OnInit {
     this.router.navigate(['/']);
   }
 
-  searchUser(search){
+  searchUser(search:any){
     if(search.search==""){
       this.adminService.searchAllUsers().subscribe(response=>{
         this.listOfUsers=response.body;

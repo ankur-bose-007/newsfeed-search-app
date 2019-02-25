@@ -13,7 +13,7 @@ import { GlobalService } from 'src/GlobalServices/global.service';
 export class LoginComponent implements OnInit {
 
   loginFormGroup=this.fb.group({
-    emailId:['',[Validators.required,Validators.minLength(7),Validators.pattern('^([a-zA-Z0-9_\.-]+)@([a-zA-Z0-9_\.-]+)\\.([a-zA-Z]{2,5})$')]],
+    emailId:['',[Validators.required,Validators.pattern('^([a-zA-Z0-9_\.-]+)@([a-zA-Z0-9_\.-]+)\\.([a-zA-Z]{2,5})$')]],
     password:['',Validators.required]
   });
 

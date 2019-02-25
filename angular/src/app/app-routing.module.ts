@@ -12,12 +12,12 @@ import { NavComponent } from './nav/nav.component';
 const routes: Routes = [
   {path:'',component:LoginComponent},
   {path:'signup',component:SignupComponent},
+  {path:'Pageadmin',component:AdminComponent,canActivate: [AuthGuard]},
   {path:'navbar',component:NavComponent,canActivate: [AuthGuard],
   children:[
   {path:'Pageuser',component:UserLandingComponent},
   {path:'searchHistory',component:SearchHistoryComponent}
-  ]},
-  {path:'Pageadmin',component:AdminComponent,canActivate: [AuthGuard]}
+  ]}
 ];
 
 @NgModule({
