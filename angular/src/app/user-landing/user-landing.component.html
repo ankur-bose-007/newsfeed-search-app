@@ -1,6 +1,6 @@
 <form class="form-inline" [formGroup]="SearchForm">
-  <input class="form-control col-8 offset-2" style="width:50%" type="search" placeholder="Search" aria-label="Search" formControlName="search">
-  <button (click)="searchArticles(SearchForm.value)" class="btn logo-color my-2 my-sm-0" type="submit"><i class="fa fa-search"></i></button>
+  <input id="searchTab" class="form-control col-8 offset-2" style="width:50%" type="search" placeholder="Search" aria-label="Search" formControlName="search">
+  <button id="searchBut" (click)="searchArticles(SearchForm.value)" class="btn logo-color my-2 my-sm-0" type="submit"><i class="fa fa-search"></i></button>
 </form>
 <div *ngFor="let article of mArticles">
 <div class="row col-8 offset-2 my-5 p-0 border rounded overflow-hidden">

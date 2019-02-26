@@ -25,4 +25,8 @@ describe('admin test',()=>{
         page.search('jeet');
         expect(element(by.css('table')).all(by.css('button')).first().isPresent()).toBeTruthy();
     })
+    it('logout',()=>{
+        page.logout().click();
+        expect(browser.getCurrentUrl()).toEqual('http://localhost:4200/');
+    })
 });

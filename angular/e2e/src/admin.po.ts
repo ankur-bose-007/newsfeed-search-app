@@ -25,4 +25,7 @@ export class admin{
 
         element(by.id('searchSubmit')).click();
     }
+    logout(){
+        return element(by.id('logout'));
+    }
 }

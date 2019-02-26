@@ -6,14 +6,14 @@
   <div class="collapse navbar-collapse" id="navbarText">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item">
-          <a (click)="history()" name="Search History"><strong  class="nav-link">Search History</strong></a>
+          <a id="history" (click)="history()" name="Search History"><strong  class="nav-link">Search History</strong></a>
       </li>
       <li class="nav-item text-primary-color">
-          <a (click)="news()" name="News"><strong  class="nav-link">News</strong></a>
+          <a id="news" (click)="news()" name="News"><strong  class="nav-link">News</strong></a>
       </li>
     </ul>
       <span class="navbar-text active">
-        <a (click)="LogOut()" class="text-white rounded" name="LogOut">LOG OUT</a>
+        <a id="logout" (click)="LogOut()" class="text-white rounded" name="LogOut">LOG OUT</a>
       </span>    
   </div>
 </nav>
