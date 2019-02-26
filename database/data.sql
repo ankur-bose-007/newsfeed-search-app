@@ -1,8 +1,8 @@
-CREATE DATABASE  IF NOT EXISTS `mocktest` /*!40100 DEFAULT CHARACTER SET latin1 */;
-USE `mocktest`;
+CREATE DATABASE  IF NOT EXISTS `newsfeeddb` /*!40100 DEFAULT CHARACTER SET latin1 */;
+USE `newsfeeddb`;
 -- MySQL dump 10.13  Distrib 5.5.16, for Win32 (x86)
 --
--- Host: localhost    Database: mocktest
+-- Host: localhost    Database: newsfeeddb
 -- ------------------------------------------------------
 -- Server version	5.1.45-community
 
@@ -51,11 +51,11 @@ UNLOCK TABLES;
 -- Dump completed on 2019-02-26 15:34:42
 
 
-CREATE DATABASE  IF NOT EXISTS `mocktest` /*!40100 DEFAULT CHARACTER SET latin1 */;
-USE `mocktest`;
+CREATE DATABASE  IF NOT EXISTS `newsfeeddb` /*!40100 DEFAULT CHARACTER SET latin1 */;
+USE `newsfeeddb`;
 -- MySQL dump 10.13  Distrib 5.5.16, for Win32 (x86)
 --
--- Host: localhost    Database: mocktest
+-- Host: localhost    Database: newsfeeddb
 -- ------------------------------------------------------
 -- Server version	5.1.45-community
 
@@ -109,11 +109,11 @@ UNLOCK TABLES;
 -- Dump completed on 2019-02-26 15:34:45
 
 
-CREATE DATABASE  IF NOT EXISTS `mocktest` /*!40100 DEFAULT CHARACTER SET latin1 */;
-USE `mocktest`;
+CREATE DATABASE  IF NOT EXISTS `newsfeeddb` /*!40100 DEFAULT CHARACTER SET latin1 */;
+USE `newsfeeddb`;
 -- MySQL dump 10.13  Distrib 5.5.16, for Win32 (x86)
 --
--- Host: localhost    Database: mocktest
+-- Host: localhost    Database: newsfeeddb
 -- ------------------------------------------------------
 -- Server version	5.1.45-community
 
@@ -168,11 +168,11 @@ UNLOCK TABLES;
 -- Dump completed on 2019-02-26 15:34:43
 
 
-CREATE DATABASE  IF NOT EXISTS `mocktest` /*!40100 DEFAULT CHARACTER SET latin1 */;
-USE `mocktest`;
+CREATE DATABASE  IF NOT EXISTS `newsfeeddb` /*!40100 DEFAULT CHARACTER SET latin1 */;
+USE `newsfeeddb`;
 -- MySQL dump 10.13  Distrib 5.5.16, for Win32 (x86)
 --
--- Host: localhost    Database: mocktest
+-- Host: localhost    Database: newsfeeddb
 -- ------------------------------------------------------
 -- Server version	5.1.45-community
 
