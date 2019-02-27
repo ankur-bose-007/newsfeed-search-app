@@ -1,10 +1,6 @@
 {
-    "/user": {
-      "target": "http://localhost:9090/mockTest/",
-      "secure": false
-    },
-    "/admin":{
-      "target": "http://localhost:9090/mockTest/",
+    "/newsfeedservice/*": {
+      "target": "http://localhost:8080/newsfeedservice/",
       "secure": false
     }
 }

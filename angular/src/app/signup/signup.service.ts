@@ -10,6 +10,6 @@ export class SignupService {
   constructor(private http:HttpClient) { }
 
   signup(user:User){
-    return this.http.post('user/signup',user,{responseType:'text',observe:'response'});
+    return this.http.post('/newsfeedservice/user/signup',user,{responseType:'text',observe:'response'});
   }
 }

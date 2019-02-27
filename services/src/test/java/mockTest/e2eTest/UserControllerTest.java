@@ -16,10 +16,13 @@ import static org.hamcrest.core.StringContains.containsString;
 
 import java.time.LocalDateTime;
 
+import javax.transaction.Transactional;
+
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.mocktest.core.Application;
 import com.mocktest.core.entity.Search;
 import com.mocktest.core.entity.User;
+import com.mocktest.core.repo.UserRepository;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest(classes=Application.class)
@@ -31,6 +34,8 @@ public class UserControllerTest {
 	private MockMvc mockMvc;
 	User user1;
 	Search search;
+	@Autowired
+	private UserRepository userRepository;
 	
 	@Before
 	public void initialize(){
@@ -105,7 +110,7 @@ public class UserControllerTest {
 		mockMvc.perform(MockMvcRequestBuilders.post("/user/login")
 				.content(mapper.writeValueAsString(user1))
 				.contentType("application/json;charset=UTF-8"))
-				.andExpect(MockMvcResultMatchers.status().isBadRequest());
+				.andExpect(MockMvcResultMatchers.status().isNotAcceptable());
 	}
 	@Test
 	public void userBlocked() throws Exception{
@@ -119,10 +124,12 @@ public class UserControllerTest {
 	
 	//test for signup
 	@Test
+	@Transactional
 	public void successfulSignup() throws Exception{
 		user1=new User();
 		user1.setEmailId("user.123@gmail.com");
 		user1.setPassword("Password@10");
+		userRepository.deleteByEmailId(user1.getEmailId());
 		mockMvc.perform(MockMvcRequestBuilders.post("/user/signup")
 				.content(mapper.writeValueAsString(user1))
 				.contentType("application/json;charset=UTF-8"))

@@ -10,14 +10,14 @@ export class AdminService {
   constructor(private http:HttpClient) { }
 
   searchUser(emailId:string){
-    return this.http.get<Array<User>>('admin/searchUser/'+emailId,{observe:'response'});
+    return this.http.get<Array<User>>('/newsfeedservice/admin/searchUser/'+emailId,{observe:'response'});
   }
 
   searchAllUsers(){
-    return this.http.get<Array<User>>('admin/searchAllUsers',{observe:'response'});
+    return this.http.get<Array<User>>('/newsfeedservice/admin/searchAllUsers',{observe:'response'});
   }
 
   blacklist(emailId:string){
-    return this.http.get('admin/blacklist/'+emailId,{observe:'response',responseType:'text'});
+    return this.http.get('/newsfeedservice/admin/blacklist/'+emailId,{observe:'response',responseType:'text'});
   }
 }
