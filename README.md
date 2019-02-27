@@ -31,7 +31,7 @@ This is a boiler plate project for FSD Certification Practice Check. Admin can s
 4. Logout
 
 
-#Softwares Required
+## Softwares Required
 1. Visual Studio Code
 2. Eclipse
 3. Tomcat Server
@@ -39,7 +39,7 @@ This is a boiler plate project for FSD Certification Practice Check. Admin can s
 5. Git 
 6. MySql Server
 
-#Get the project using Git
+## Get the project using Git
 1. Create a folder in D: drive in which you want to download the project.
 2. Open Windows Explorer.
 3. Go to the folder you created.
@@ -50,13 +50,13 @@ This is a boiler plate project for FSD Certification Practice Check. Admin can s
     git clone https://code.cognizant.com/729706/newsfeed-search-app.git
     ```
 
-#To start the Mysql Database
+## To start the Mysql Database
 1. Inside your created folder for newsfeed-search-app project, goto "database" folder.
 2. Inside database folder there will be script file with the name "data.sql".
 3. Execute the above given script file.
 4. You will get the database.
 
-#To run services
+## To run services
 1. Inside your created folder for newsfeed-search-app project, goto "services" folder.
 2. Right click on the right hand side blank area.
 3. Select "Git Bash Here".
@@ -68,7 +68,7 @@ This is a boiler plate project for FSD Certification Practice Check. Admin can s
 6. copy "newsfeedservice.war" file into your tomcat/webapps folder and run tomcat using "startup.bat"
     
 
-#To run angular
+# To run angular
 1. Inside your created folder for newsfeed-search-app,goto "angular" folder.
 2. Press Shift+Right click on the right hand side blank area.
 3. Select "Open PowerShell window here".
