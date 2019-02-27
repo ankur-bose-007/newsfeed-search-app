@@ -29,3 +29,76 @@ This is a boiler plate project for FSD Certification Practice Check. Admin can s
 2. Search News Analyst
 3. Blacklist News Analyst
 4. Logout
+
+
+#Softwares Required
+1. Visual Studio Code
+2. Eclipse
+3. Tomcat Server
+4. MySql Workbench
+5. Git 
+6. MySql Server
+
+#Get the project using Git
+1. Create a folder in D: drive in which you want to download the project.
+2. Open Windows Explorer.
+3. Go to the folder you created.
+4. Right click on the right hand side blank area.
+5. Select "Git Bash Here".
+6. Run following commands one by one:
+    ```
+    git clone https://code.cognizant.com/729706/newsfeed-search-app.git
+    ```
+
+#To start the Mysql Database
+1. Inside your created folder for newsfeed-search-app project, goto "database" folder.
+2. Inside database folder there will be script file with the name "data.sql".
+3. Execute the above given script file.
+4. You will get the database.
+
+#To run services
+1. Inside your created folder for newsfeed-search-app project, goto "services" folder.
+2. Right click on the right hand side blank area.
+3. Select "Git Bash Here".
+4. Run following command:   
+    ```
+    mvn clean package
+    ```
+5. A folder named "target" will be created,goto that folder.
+6. copy "newsfeedservice.war" file into your tomcat/webapps folder and run tomcat using "startup.bat"
+    
+
+#To run angular
+1. Inside your created folder for newsfeed-search-app,goto "angular" folder.
+2. Press Shift+Right click on the right hand side blank area.
+3. Select "Open PowerShell window here".
+4. Run following commands:
+    ```
+    npm install
+    ```
+    ```
+    ng build --prod
+    ```
+5. A folder named "dist" will be created inside folder angular will be created.
+6. copy the content of dist folder into webapps folder of tomcat and run tomcat.
+    
+
+    
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
