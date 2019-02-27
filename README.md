@@ -54,8 +54,17 @@ This is a boiler plate project for FSD Certification Practice Check. Admin can s
 ## To start the Mysql Database
 1. Inside your created folder for newsfeed-search-app project, goto "database" folder.
 2. Inside database folder there will be script file with the name "data.sql".
-3. Execute the above given script file.
-4. You will get the database.
+3. Right click on the right hand side blank area.
+4. Select "Open PowerShell window here".
+5. Run following command:
+    ```
+    mysql -q root -p
+    ```
+6. Enter password if required
+7. Run following command:
+    ```
+    source data.sql
+    ```
 
 ## To run services
 1. Inside your created folder for newsfeed-search-app project, goto "services" folder.
@@ -82,24 +91,4 @@ This is a boiler plate project for FSD Certification Practice Check. Admin can s
     ```
 5. A folder named "dist" will be created inside folder angular will be created.
 6. copy the content of dist folder into webapps folder of tomcat and run tomcat.
-    
-
-    
-    
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
