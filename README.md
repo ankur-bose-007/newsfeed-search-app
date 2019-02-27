@@ -30,6 +30,7 @@ This is a boiler plate project for FSD Certification Practice Check. Admin can s
 3. Blacklist News Analyst
 4. Logout
 
+# Application Deployment
 
 ## Softwares Required
 1. Visual Studio Code
@@ -68,7 +69,7 @@ This is a boiler plate project for FSD Certification Practice Check. Admin can s
 6. copy "newsfeedservice.war" file into your tomcat/webapps folder and run tomcat using "startup.bat"
     
 
-# To run angular
+## To run angular
 1. Inside your created folder for newsfeed-search-app,goto "angular" folder.
 2. Press Shift+Right click on the right hand side blank area.
 3. Select "Open PowerShell window here".
