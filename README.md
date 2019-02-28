@@ -87,8 +87,8 @@ This is a boiler plate project for FSD Certification Practice Check. Admin can s
     npm install
     ```
     ```
-    ng build --prod
+    ng build --prod --base-href=/newsfeedfront/ --output-path=newsfeedfront
     ```
-5. A folder named "dist" will be created inside folder angular will be created.
-6. copy the content of dist folder into webapps folder of tomcat and run tomcat.
+5. A folder named "newsfeedfront" will be created inside folder angular will be created.
+6. copy the folder into webapps folder of tomcat and run tomcat.
 
