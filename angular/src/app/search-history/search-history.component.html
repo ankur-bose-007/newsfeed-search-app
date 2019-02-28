@@ -1,0 +1,20 @@
+<h1>Search History</h1>
+<table id="searchTable" *ngIf="searchHistoryList.length>0" class="table table-hover">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Keyword</th>
+      <th scope="col">Time</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let search of searchHistoryList">
+      <th scope="row">{{searchHistoryList.indexOf(search)+1}}</th>
+      <td>{{search.keyword}}</td>
+      <td>{{search.searchTime}}</td>
+      <td><button id="del" (click)="delete(search)"><i class="fa fa-trash"></i></button></td>
+    </tr>
+  </tbody>
+</table>
+<div *ngIf="searchHistoryList.length==0"> No records found </div>

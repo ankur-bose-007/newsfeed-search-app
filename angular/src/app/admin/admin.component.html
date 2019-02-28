@@ -1,0 +1,48 @@
+<nav class="navbar navbar-expand-md shadow-sm mb-5 bg-white navbar-light">
+  <h3 class="logo-color logo-color">Cognizant News</h3>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText"
+    aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarText">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+
+      </li>
+    </ul>
+    <form class="form-inline" [formGroup]="SearchForm">
+      <div class="row">
+        <div class="col input-group">
+          <input id="searchText" class="form-control" style="width:50%" type="search" placeholder="Search"
+            aria-label="Search" formControlName="search">
+          <div class="input-group-append">
+            <button id="searchSubmit" (click)="searchUser(SearchForm.value)" class="btn logo-color" type="submit"><i
+                class="fa fa-search"></i></button>
+          </div>
+        </div>
+      </div>
+    </form>
+    <span class="navbar-text active">
+      <a id="logout" (click)="LogOut()" class="text-white rounded" name="LogOut">LOG OUT</a>
+    </span>
+  </div>
+</nav>
+<h5 class="text-primary-color">News Analyst Details:</h5>
+<div>
+</div>
+<table class="table table-hover mt-4 col-sm-12">
+  <thead class="main-color text-secondary-color">
+    <th>#</th>
+    <th>Email</th>
+    <th>Status</th>
+  </thead>
+  <tr *ngFor="let user of listOfUsers;let i=index">
+    <td><strong>{{listOfUsers.indexOf(user)+1}}</strong></td>
+    <td><strong>{{user.emailId}}</strong></td>
+    <td>
+      <div *ngIf="user.active"><button id="button_{{i}}" (click)="blacklist(user)"><i
+            class="fa fa-user-times text-primary-color"></i></button></div>
+      <div *ngIf="!user.active"><i class="fa fa-ban text-primary-color"></i></div>
+    </td>
+  </tr>
+</table>

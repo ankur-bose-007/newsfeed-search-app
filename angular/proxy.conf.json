@@ -1,0 +1,7 @@
+{
+  "/newsfeedservice/*": {
+    "target": "http://localhost:6060/newsfeedservice/",
+    "secure": false
+  }
+
+}
