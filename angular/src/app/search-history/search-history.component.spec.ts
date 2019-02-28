@@ -8,9 +8,9 @@ describe('SearchHistoryComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ SearchHistoryComponent ]
+      declarations: [SearchHistoryComponent]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {

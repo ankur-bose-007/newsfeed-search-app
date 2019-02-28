@@ -1,20 +1,21 @@
 <nav class="navbar navbar-expand-md shadow-sm mb-5 bg-white navbar-light">
   <h3 class="logo-color logo-color">Cognizant News</h3>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText"
+    aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
-  </button>   
+  </button>
   <div class="collapse navbar-collapse" id="navbarText">
     <ul class="navbar-nav mr-auto">
       <li class="nav-item">
-          <a id="history" (click)="history()" name="Search History"><strong  class="nav-link">Search History</strong></a>
+        <a id="history" (click)="history()" name="Search History"><strong class="nav-link">Search History</strong></a>
       </li>
       <li class="nav-item text-primary-color">
-          <a id="news" (click)="news()" name="News"><strong  class="nav-link">News</strong></a>
+        <a id="news" (click)="news()" name="News"><strong class="nav-link">News</strong></a>
       </li>
     </ul>
-      <span class="navbar-text active">
-        <a id="logout" (click)="LogOut()" class="text-white rounded" name="LogOut">LOG OUT</a>
-      </span>    
+    <span class="navbar-text active">
+      <a id="logout" (click)="LogOut()" class="text-white rounded" name="LogOut">LOG OUT</a>
+    </span>
   </div>
 </nav>
 <router-outlet></router-outlet>

@@ -13,28 +13,28 @@ import { Search } from 'src/Model/Search';
 })
 export class UserLandingComponent implements OnInit {
 
-  mArticles:Array<any>;
-  mSources:Array<any>;
-  search:Search;
-  SearchForm=this.fb.group({
-    search:['']
+  mArticles: Array<any>;
+  mSources: Array<any>;
+  search: Search;
+  SearchForm = this.fb.group({
+    search: ['']
   });
 
-  constructor(private router:Router,private globalService:GlobalService,private newsapi:ApiService,private fb:FormBuilder,private searchService:SearchService) { 
+  constructor(private router: Router, private globalService: GlobalService, private newsapi: ApiService, private fb: FormBuilder, private searchService: SearchService) {
   }
 
   ngOnInit() {
-    this.search=new Search();
+    this.search = new Search();
     this.newsapi.initArticles().subscribe(data => this.mArticles = data['articles']);
     // //load news sources
-    this.newsapi.initSources().subscribe(data=> this.mSources = data['sources']);  
-    }
+    //this.newsapi.initSources().subscribe(data => this.mSources = data['sources']);
+  }
 
 
-  searchArticles(source:any){
-    this.search.keyword=source.search;
-    this.searchService.addSearch(this.search,this.globalService.user.emailId).subscribe(response=>{
-      if(response.status==200)
+  searchArticles(source: any) {
+    this.search.keyword = source.search;
+    this.searchService.addSearch(this.search, this.globalService.user.emailId).subscribe(response => {
+      if (response.status == 200)
         alert("search added");
     });
     this.newsapi.getArticlesByID(source.search).subscribe(data => this.mArticles = data['articles']);

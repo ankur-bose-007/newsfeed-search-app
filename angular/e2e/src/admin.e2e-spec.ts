@@ -9,9 +9,6 @@ describe('admin test',()=>{
         page.login();
     });
     it('inside admin page',()=>{
-        browser.wait(protractor.ExpectedConditions.alertIsPresent(),4000);
-        expect(browser.switchTo().alert().getText()).toEqual('Successfully logged in');
-        browser.switchTo().alert().accept();
         expect(browser.getCurrentUrl()).toEqual('http://localhost:4200/Pageadmin');
     });
     it('blacklist user',()=>{

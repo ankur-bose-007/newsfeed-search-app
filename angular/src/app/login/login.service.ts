@@ -7,13 +7,13 @@ import { HttpClient } from '@angular/common/http';
 })
 export class LoginService {
 
-  constructor(private http:HttpClient) { }
+  constructor(private http: HttpClient) { }
 
-  login(user:User){
-      return this.http.post('user/login',user,{responseType:'text',observe:'response'});
+  login(user: User) {
+    return this.http.post('/newsfeedservice/user/login', user, { responseType: 'text', observe: 'response' });
   }
 
-  getUserDetails(emailId:string){
-    return this.http.get<User>('user/getUserDetails/'+emailId,{observe:'response'});
+  getUserDetails(emailId: string) {
+    return this.http.get<User>('/newsfeedservice/user/getUserDetails/' + emailId, { observe: 'response' });
   }
 }

@@ -35,11 +35,13 @@ export function tokenGetter() {
     ReactiveFormsModule,
     FormsModule,
     HttpClientModule,
-    JwtModule.forRoot({config:{
-      tokenGetter: tokenGetter
-    }})
+    JwtModule.forRoot({
+      config: {
+        tokenGetter: tokenGetter
+      }
+    })
   ],
-  providers: [AuthGuard,SignupService,{provide: HTTP_INTERCEPTORS,useClass: AuthInterceptor,multi: true},JwtHelperService],
+  providers: [AuthGuard, SignupService, { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true }, JwtHelperService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

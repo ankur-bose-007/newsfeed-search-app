@@ -9,20 +9,20 @@ import { GlobalService } from 'src/GlobalServices/global.service';
 })
 export class NavComponent implements OnInit {
 
-  constructor(private router:Router,private globalService:GlobalService) { }
+  constructor(private router: Router, private globalService: GlobalService) { }
 
   ngOnInit() {
     this.router.navigate(['navbar/Pageuser']);
   }
-  history(){
+  history() {
     this.router.navigate(['navbar/searchHistory']);
   }
-  news(){
+  news() {
     this.router.navigate(['navbar/Pageuser']);
   }
-  LogOut(){
+  LogOut() {
     localStorage.removeItem('token');
-    this.globalService.jwt='';
+    this.globalService.jwt = '';
     this.router.navigate(['/']);
   }
 }
