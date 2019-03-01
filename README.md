@@ -92,3 +92,31 @@ This is a boiler plate project for FSD Certification Practice Check. Admin can s
 5. A folder named "newsfeedfront" will be created inside folder angular will be created.
 6. copy the folder into webapps folder of tomcat and run tomcat.
 
+
+## To run karma test
+1. Inside your created folder for newsfeed-search-app,goto "angular" folder.
+2. Press Shift+Right click on the right hand side blank area.
+3. Select "Open PowerShell window here".
+4. Run following command:
+    ```
+    ng test
+    ```
+
+## To run protractor
+1. Inside tomcat/webapps folder, goto the contents of "dist" folder.
+2. Press Shift+Right on the right hand side blank area.
+3. Select "Open PowerShell Window here".
+4. Run the following commands one by one:
+    ```
+    webdriver-manager clean
+    ```
+    ```
+    webdriver-manager update --versions.chrome=2.42 --proxy http://proxy.cognizant.com:6050
+    ```
+    ```
+    webdriver-manager start --versions.chrome 2.42
+    ```
+5. Open another "PowerShell Window" and run the following commands one by one:
+    ```
+    protractor e2e/protractor.conf.js
+    ``` 
