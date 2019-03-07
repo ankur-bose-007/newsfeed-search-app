@@ -1,6 +1,6 @@
 {
   "/newsfeedservice/*": {
-    "target": "http://localhost:6060/newsfeedservice/",
+    "target": "http://localhost:8080/newsfeedservice/",
     "secure": false
   }
 

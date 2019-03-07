@@ -1,0 +1,26 @@
+version: '2'
+
+services: 
+  docker-mysql:
+    build:
+      context: ./database
+      dockerfile: ./Dockerfile.database
+    environment:
+      - MYSQL_ROOT_PASSWORD=root
+      - MYSQL_DATABASE=newsfeeddb
+      - MYSQL_PASSWORD=root
+  spring-docker-service:
+    image: spring-docker-service
+    build: .
+    links:
+      - docker-mysql
+    depends_on:
+      - docker-mysql
+    ports:
+      - 8080:9090
+    environment:
+      - DATABASE_HOST=docker-mysql
+      - DATABASE_USER=root
+      - DATABASE_PASSWORD=root
+      - DATABASE_NAME=newsfeeddb  
+      - DATABASE_PORT=3306
